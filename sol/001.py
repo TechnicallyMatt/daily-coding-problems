@@ -8,6 +8,14 @@ import pytest
 
 
 def pair_sums_to_k(num_list: list, k: int) -> bool:
+    '''
+    Use a hashset (python set()) which has, on average, constant lookup time.
+    Then for each element of the list, we can check to see if the complement of
+    k and it has been seen before by checking within the set. If the complement
+    has not been seen, add the element itself to the set.
+
+    This scales linearly, i.e. O(N)
+    '''
     H = set()
     for n in num_list:
         if (k - n) in H:
